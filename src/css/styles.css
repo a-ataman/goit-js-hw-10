@@ -21,9 +21,13 @@ body {
 
 .country-list {
   list-style-type: none;
+  padding: 0;
 }
 
 .country-item {
   display: flex;
   align-items: center;
+}
+.country-img {
+  margin-right: 5px;
 }

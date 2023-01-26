@@ -3,19 +3,19 @@ import debounce from 'lodash.debounce';
 import { fetchCountries } from './fetchCountries';
 import Notiflix from 'notiflix';
 import createCountrylist from './function';
-import createCountryInfo from './createCountryInfp';
+import createCountryInfo from './createCountryInfo';
 
 const DEBOUNCE_DELAY = 300;
 
 const input = document.querySelector('input#search-box');
 const list = document.querySelector('.country-list');
-const divInfo = document.querySelector('.country-info');
+const Infocard = document.querySelector('.country-info');
 
 input.addEventListener('input', debounce(onIput, DEBOUNCE_DELAY));
 
 function onIput(e) {
   list.innerHTML = '';
-  divInfo.innerHTML = '';
+  Infocard.innerHTML = '';
 
   const named = e.target.value;
 
@@ -37,7 +37,7 @@ function onIput(e) {
       list.insertAdjacentHTML('beforeend', createCountrylist(country));
 
       if (country.length === 1) {
-        divInfo.insertAdjacentHTML('beforeend', createCountryInfo(country));
+        Infocard.insertAdjacentHTML('beforeend', createCountryInfo(country));
       }
     })
     .catch(error => {
